@@ -1,21 +1,11 @@
 import GenericLink from '../components/GenericLink';
 import Header from '../components/Header';
 import TaskItem from '../components/TaskItem';
+import useFetch from '../hooks/useFetch';
 import { ITask } from '../types';
 
 const Tasks = () => {
-  const tasks: ITask[] = [
-    {
-      id: '1',
-      title: 'Home test',
-      description: 'blablabla',
-    },
-    {
-      id: '2',
-      title: 'Home test 2',
-      description: 'blablabla',
-    },
-  ];
+  const tasks: ITask[] = useFetch('');
 
   return (
     <>
