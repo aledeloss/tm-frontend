@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Tasks from './assets/pages/Tasks';
-import NewTask from './assets/pages/NewTask';
-import TaskDetail from './assets/pages/TaskDetail';
+import Tasks from './pages/Tasks';
+import NewTask from './pages/NewTask';
+import TaskDetail from './pages/TaskDetail';
 
 const router = createBrowserRouter([
   {

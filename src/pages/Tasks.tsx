@@ -1,7 +1,7 @@
-import GenericLink from '../../components/GenericLink';
-import Header from '../../components/Header';
-import TaskItem from '../../components/TaskItem';
-import { ITask } from '../../types';
+import GenericLink from '../components/GenericLink';
+import Header from '../components/Header';
+import TaskItem from '../components/TaskItem';
+import { ITask } from '../types';
 
 const Tasks = () => {
   const tasks: ITask[] = [

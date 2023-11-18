@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
-import GenericLink from '../../components/GenericLink';
-import Header from '../../components/Header';
+import GenericLink from '../components/GenericLink';
+import Header from '../components/Header';
 
 function TaskDetail() {
   const { id } = useParams();

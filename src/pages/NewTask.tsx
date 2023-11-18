@@ -1,5 +1,5 @@
-import GenericInput from '../../components/GenericInput';
-import Header from '../../components/Header';
+import GenericInput from '../components/GenericInput';
+import Header from '../components/Header';
 
 const NewTask = () => {
   return (
