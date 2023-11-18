@@ -2,19 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Tasks from './assets/pages/Tasks';
+import NewTask from './assets/pages/NewTask';
+import TaskDetail from './assets/pages/TaskDetail';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>My tasks</div>,
+    element: <Tasks />,
   },
   {
     path: '/add',
-    element: <div>New task</div>,
+    element: <NewTask />,
   },
   {
     path: '/tasks/:id',
-    element: <div>Task detail</div>,
+    element: <TaskDetail />,
   },
 ]);
 
