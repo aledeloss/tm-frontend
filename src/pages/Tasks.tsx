@@ -11,9 +11,10 @@ const Tasks = () => {
     <Wrapper title='Your registered tasks'>
       <>
         <div className='flex flex-col w-full'>
-          {tasks.map((task) => {
-            return <TaskItem title={task.title} id={task.id} key={task.id} />;
-          })}
+          {tasks &&
+            tasks.map((task) => {
+              return <TaskItem title={task.title} id={task.id} key={task.id} />;
+            })}
         </div>
         <GenericLink redirectsTo='/add' label='Create new' />
       </>
