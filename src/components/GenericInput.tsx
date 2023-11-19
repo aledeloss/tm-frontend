@@ -6,11 +6,20 @@ interface IGenericInput {
   type: string;
 }
 const GenericInput = ({ name, label, type }: IGenericInput) => {
+  const styles = 'w-full border border-green rounded p-2';
+
   return (
-    <>
-      <label htmlFor={name}>{label}</label>
-      <input type={type} name={name}></input>
-    </>
+    <div className='flex m-2'>
+      <label className='w-48 text-left' htmlFor={name}>
+        {label}:
+      </label>
+      {type === 'text' && (
+        <input className={styles} type={type} name={name}></input>
+      )}
+      {type === 'textarea' && (
+        <textarea className={styles} name={name}></textarea>
+      )}
+    </div>
   );
 };
 

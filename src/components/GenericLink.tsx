@@ -5,7 +5,14 @@ interface ILinkProps {
   redirectsTo: string;
 }
 const GenericLink = ({ label, redirectsTo }: ILinkProps) => {
-  return <Link to={redirectsTo}>{label}</Link>;
+  return (
+    <Link
+      className='btn-primary'
+      to={redirectsTo}
+    >
+      {label}
+    </Link>
+  );
 };
 
 export default GenericLink;

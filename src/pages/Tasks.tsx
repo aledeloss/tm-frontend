@@ -1,6 +1,6 @@
 import GenericLink from '../components/GenericLink';
-import Header from '../components/Header';
 import TaskItem from '../components/TaskItem';
+import Wrapper from '../components/Wrapper';
 import useFetch from '../hooks/useFetch';
 import { ITask } from '../types';
 
@@ -8,18 +8,16 @@ const Tasks = () => {
   const tasks: ITask[] = useFetch('');
 
   return (
-    <>
-      <Header />
-      <main>
-        <h1>Your registered tasks</h1>
-        <GenericLink redirectsTo='/add' label='Create new' />
-        <div>
+    <Wrapper title='Your registered tasks'>
+      <>
+        <div className='flex flex-col w-full'>
           {tasks.map((task) => {
             return <TaskItem title={task.title} id={task.id} key={task.id} />;
           })}
         </div>
-      </main>
-    </>
+        <GenericLink redirectsTo='/add' label='Create new' />
+      </>
+    </Wrapper>
   );
 };
 

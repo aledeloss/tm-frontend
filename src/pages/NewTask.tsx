@@ -1,23 +1,25 @@
 import GenericInput from '../components/GenericInput';
-import Header from '../components/Header';
+import GenericLink from '../components/GenericLink';
+import Wrapper from '../components/Wrapper';
 
 const NewTask = () => {
   return (
-    <>
-      <Header />
-      <main>
-        <h1>New task</h1>
-        <form>
+    <Wrapper title='New task'>
+      <form className=' w-full'>
+        <fieldset className='flex flex-col m-4'>
           <GenericInput name='Title' label='Title' type='text' />
           <GenericInput
             name='Description'
             label='Description'
             type='textarea'
           />
-          <button onSubmit={() => console.log('submit')}>OK</button>
-        </form>
-      </main>
-    </>
+        </fieldset>
+        <div className='flex justify-end'>
+          <GenericLink redirectsTo='/' label='Go back' />
+          <input type='submit' value='Ok' className='btn-primary' />
+        </div>
+      </form>
+    </Wrapper>
   );
 };
 
