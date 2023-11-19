@@ -1,11 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useNavigate } from 'react-router';
 import GenericInput from '../components/GenericInput';
 import GenericLink from '../components/GenericLink';
 import Wrapper from '../components/Wrapper';
 
 const NewTask = () => {
-  const formRef = useRef<HTMLFormElement | null>(undefined);
-  const submitRef = useRef<HTMLButtonElement | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const navigate = useNavigate();
 
   const addTask = async () => {
     const formData = formRef.current && new FormData(formRef.current);
@@ -19,6 +20,7 @@ const NewTask = () => {
           },
         });
         if (!response.ok) console.error('ups');
+        return navigate('/');
       }
     } catch (e) {
       console.error(e, 'ups');
@@ -42,7 +44,6 @@ const NewTask = () => {
             type='button'
             className='btn-primary'
             onClick={() => addTask()}
-            ref={submitRef}
           >
             OK
           </button>

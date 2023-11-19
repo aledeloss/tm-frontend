@@ -1,4 +1,4 @@
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import GenericLink from '../components/GenericLink';
 import Wrapper from '../components/Wrapper';
 import useFetch from '../hooks/useFetch';
@@ -8,6 +8,7 @@ function TaskDetail() {
   const { id } = useParams();
   const tasks: ITask[] = useFetch('');
   const task = tasks.find((task) => task.id === id);
+  const navigate = useNavigate();
 
   const deleteTask = async () => {
     try {
@@ -18,6 +19,7 @@ function TaskDetail() {
         },
       });
       if (!response.ok) console.error('ups');
+      return navigate('/');
     } catch (e) {
       console.error(e, 'ups');
     }
@@ -26,9 +28,12 @@ function TaskDetail() {
   return (
     <Wrapper title={task?.title ?? ''}>
       <>
-        <div className='w-full m-4 p-4 text-left h-full rounded border border-green'>
-          {task?.description}
-        </div>
+        {' '}
+        {task?.description && (
+          <div className='w-full m-4 p-4 text-left h-full rounded border border-green'>
+            {task?.description}
+          </div>
+        )}
         <div className='flex m-4 justify-end w-full'>
           <GenericLink label='Go back' redirectsTo='/' />
           <button className='btn-primary' onClick={() => deleteTask()}>
