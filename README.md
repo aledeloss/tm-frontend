@@ -44,4 +44,5 @@ If I had more time, besides solving the known issues mentioned above, I would:
   - Error are correctly handled.
 - Refactor. For example, the useFetch hook is used in all cases. This was meant to be so, but for time reasons, I decided to implement the fetch in each component so I could solve all requests faster.
 - The data validations could be better, but the structure of our task was so simple that I don't think it's worth using a validation library., as Zod.
+- Improve the layout and styles to make it nicer and responsive.
 - Deploy the project to have a public URL.
