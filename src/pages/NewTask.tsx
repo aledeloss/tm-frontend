@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import GenericInput from '../components/GenericInput';
 import GenericLink from '../components/GenericLink';
@@ -7,6 +7,7 @@ import Wrapper from '../components/Wrapper';
 const NewTask = () => {
   const formRef = useRef<HTMLFormElement | null>(null);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const addTask = async () => {
     const formData = formRef.current && new FormData(formRef.current);
@@ -19,11 +20,11 @@ const NewTask = () => {
             'Content-Type': 'application/json',
           },
         });
-        if (!response.ok) console.error('ups');
-        return navigate('/');
+        if (response.status === 400) setErrorMessage('Please add a title');
+        else return navigate('/');
       }
     } catch (e) {
-      console.error(e, 'ups');
+      setErrorMessage('Something went wrong');
     }
   };
 
@@ -38,6 +39,9 @@ const NewTask = () => {
             type='textarea'
           />
         </fieldset>
+        {errorMessage && (
+          <div className='w-full text-sm text-left'>{errorMessage}</div>
+        )}
         <div className='flex justify-end'>
           <GenericLink redirectsTo='/' label='Go back' />
           <button
