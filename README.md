@@ -1,6 +1,6 @@
 # TASK MANAGER
 
-This is a very simple task manager, almost a POC. You can create a task, list all your task and delete the ones that you don't need to register anymore.
+This is the frontend of a very simple task manager, almost a POC. You can create a task, list all your task and delete the ones that you don't need to register anymore.
 
 ## Technologies used
 
@@ -15,7 +15,7 @@ If you have both projects running, you can enjoy this simple app at:
 http://localhost:5173/
 ```
 
-## Decistions made
+## Decisions made
 
 For simplicity and time reasons, I tried to choose the simplest solutions available to meet the required functionality.
 
@@ -23,10 +23,11 @@ For simplicity and time reasons, I tried to choose the simplest solutions availa
 - Routing structure: I used React router for handling routes, although after implementing it, I noticed that I could have achieved good results with no need of routing.
 - For handling the form data, I decided to use FormData, which is browser native infarce. This is a light way of handling data with no need of external libraries.
 - I decided to use TypeScript to have a more rebust project. There is a lot a of room for improvement in this matter, but a basic typing was included.
+- I chose yarn, because it is faster than npm. However, for consistency between projects, I think that I should have used the same package manager as in the backend.
 
 ## Known issues
 
-The following issues shouls be fixed:
+The following issues should be fixed:
 
 - The app is not fully accessible, since some interactive elements (as the Go back button) are not focusable (because they are actually a href, and so focus has to be added) and some color combinations do not contrast enough.
 - The homepage of the app is sending two getAllTasks requests to the backend.
@@ -35,10 +36,12 @@ The following issues shouls be fixed:
 
 ## Nice to have
 
-If I had more time, besides solving the known issued mentioned above, I would:
+If I had more time, besides solving the known issues mentioned above, I would:
 
 - Add automated tests so we make sure that the frontend works and we don't break it in the future. Particularly, to:
   - Check that they render properly,
   - That API requests are send,
   - Error are correctly handled.
-- Refactor so, for example, the useFetch hook is used in all cases. This was meant to be so, but for time reasons, I decided to implement the fetch in each component so I could solve all requests faster.
+- Refactor. For example, the useFetch hook is used in all cases. This was meant to be so, but for time reasons, I decided to implement the fetch in each component so I could solve all requests faster.
+- The data validations could be better, but the structure of our task was so simple that I don't think it's worth using a validation library., as Zod.
+- Deploy the project to have a public URL.
